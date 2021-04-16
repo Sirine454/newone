@@ -1,15 +1,25 @@
-PROCEDURE simple_sort(VAR tab : ARRAY_OF INTEGER)
+FUNCTION simple_sort( arr : ARRAY_OF FLOAT)
 VAR
    i,j,n,value : INTEGER;
 BEGIN
-   n := tab.length;
+   n := arr.length;
    FOR i FROM 0 TO n- 1 STEP 1  DO
-   value=tab[i]
-   j=i;
-   WHILE (j > 0) && (tab[j − 1] > value) DO
-      arr[j] = arr[j − 1];
-      j = j − 1;
+   value:=arr[i];
+   j:=i;
+   WHILE (j > 0) AND (arr[j − 1] > value) DO
+      arr[j] := arr[j − 1];
+      j := j − 1;
    END_WHILE
-   arr[j] = value;
+   arr[j] := value;
    END_FOR
+   RETURN arr;
+END
+ALGORITHM Sort 
+VAR
+    arr, sorted_array : ARRAY_OF FLOAT [50] ; 
+BEGIN
+    write ("give data to sort");
+    read(arr);
+    sorted_array := sorting_insertion(arr) ;
+
 END
