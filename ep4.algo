@@ -3,7 +3,7 @@ VAR
     i,j : INTEGER ;
     current : FLOAT ; 
 BEGIN
-    FOR i FROM 0 TO arr.length STEP 1  DO
+    FOR i FROM 0 TO arr.length-1 STEP 1  DO
         current := arr[i] ;
         FOR j FROM i-1 TO 0 STEP -1  DO
             IF (j >=0 AND arr[j] > current) THEN
