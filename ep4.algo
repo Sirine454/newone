@@ -1,19 +1,22 @@
-FUNCTION simple_sort( arr : ARRAY_OF FLOAT)
-VAR
-   i,j,n,value : INTEGER;
+FUNCTION sorting_insertion (arr : ARRAY_OF FLOAT ) : ARRAY_OF FLOAT
+VAR 
+    i,j : INTEGER ;
+    current : FLOAT ; 
 BEGIN
-   n := arr.length;
-   FOR i FROM 0 TO n- 1 STEP 1  DO
-   value:=arr[i];
-   j:=i;
-   WHILE (j > 0) AND (arr[j − 1] > value) DO
-      arr[j] := arr[j − 1];
-      j := j − 1;
-   END_WHILE
-   arr[j] := value;
-   END_FOR
-   RETURN arr;
+    FOR i FROM 0 TO arr.length STEP 1  DO
+        current := arr[i] ;
+        FOR j FROM i-1 TO 0 STEP -1  DO
+            IF (j >=0 AND arr[j] > current) THEN
+                arr[j+1]=arr[j] ;
+                arr[j+1] = current ; 
+            END_IF
+        END_FOR
+    END_FOR   
+    RETURN arr ;
 END
+
+
+
 ALGORITHM Sort 
 VAR
     arr, sorted_array : ARRAY_OF FLOAT [50] ; 
